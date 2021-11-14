@@ -2,6 +2,53 @@
 <html>
 
 <head>
+  <style>
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    .loader {
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border: 15px solid;
+      border-top: 16px solid blue;
+      border-right: 16px solid white;
+      border-bottom: 16px solid blue;
+      border-left: 16px solid white;
+      width: 120px;
+      height: 120px;
+      -webkit-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+    }
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
   <!--
     If you are serving your web app in a path other than the root, change the
     href value below to reflect the base path you are serving from.
@@ -12,14 +59,19 @@
     For more details:
     * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
   -->
+
   <base href="/">
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJNBGFv9RCWVmxtvS836yYvu-WabEw7yg"></script>
 
 
 
-  
+
   <meta charset="UTF-8">
-  <link rel="preload" as="script" href="script.js"><link rel="preload" as="style" href="style.css"><link rel="preload" as="image" href="img.png"><link rel="preload" as="video" href="vid.webm" type="video/webm"><link rel="preload" href="font.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="script" href="script.js">
+  <link rel="preload" as="style" href="style.css">
+  <link rel="preload" as="image" href="img.png">
+  <link rel="preload" as="video" href="vid.webm" type="video/webm">
+  <link rel="preload" href="font.woff2" as="font" type="font/woff2" crossorigin>
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="Flutter Personal Website.">
 
@@ -37,6 +89,10 @@
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
+  <div class="loading">
+    <div class="loader"></div>
+  </div>
+  <script src="main.dart.js" type="application/javascript"></script>
   <script>
     var serviceWorkerVersion = '1223651206';
     var scriptLoaded = false;
